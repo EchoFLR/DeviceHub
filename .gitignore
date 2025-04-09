@@ -1,0 +1,163 @@
+# Ignore build output
+bin/
+obj/
+
+# User-specific files
+*.user# Ignore build output
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+logs/
+
+# IDE-specific files
+.vscode/
+.idea/
+*.code-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+node_modules/
+wwwroot/lib/
+
+# Generated files
+*.g.*
+*.gen.cs
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.idb
+*.obj
+*.o
+*.so
+*.dylib
+*.class
+*.pyc
+*.ipynb_checkpoints
+
+# Publish output
+publish/
+out/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.log
+
+# Rider-specific files
+.idea/
+*.iml
+
+# Visual Studio-specific files
+.vs/
+.vscode/
+*.vsconfig
+
+# NuGet packages
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# DotNet specific
+*.dbmdl
+*.jfm
+*.lock.json
+artifacts/
+
+# Blazor-specific
+wwwroot/css/app.css
+wwwroot/css/app.css.map
+wwwroot/css/*.min.css
+wwwroot/js/*.min.js
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+logs/
+
+# IDE-specific files
+.vscode/
+.idea/
+*.code-workspace
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+node_modules/
+wwwroot/lib/
+
+# Generated files
+*.g.*
+*.gen.cs
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.idb
+*.obj
+*.o
+*.so
+*.dylib
+*.class
+*.pyc
+*.ipynb_checkpoints
+
+# Publish output
+publish/
+out/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.log
+
+# Rider-specific files
+.idea/
+*.iml
+
+# Visual Studio-specific files
+.vs/
+.vscode/
+*.vsconfig
+
+# NuGet packages
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# DotNet specific
+*.dbmdl
+*.jfm
+*.lock.json
+artifacts/
+
+# Blazor-specific
+wwwroot/css/app.css
+wwwroot/css/app.css.map
+wwwroot/css/*.min.css
+wwwroot/js/*.min.js
