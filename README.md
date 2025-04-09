@@ -131,4 +131,4 @@ http://localhost:5293/api
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](/MIT_License) file for details.
