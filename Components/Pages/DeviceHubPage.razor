@@ -1,0 +1,106 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inject DeviceController DeviceController
+
+<PageTitle>DeviceHub</PageTitle>
+
+<div class="container">
+    <h1>🔍 Device Hub</h1>
+    <div class="search-section">
+        <input type="text" placeholder="Search devices..." class="form-control search-input" 
+               @bind="_searchQuery" 
+               @onkeyup="HandleKeyPress" />
+        <button class="btn btn-primary search-button" @onclick="GetMeasurements">Search</button>
+    </div>
+
+    <div class="results-section">
+        @if (_measurements != null && _measurements.Any())
+        {
+            <ul>
+                @foreach (var measurement in _measurements)
+                {
+                    <li>@measurement.Data.Payload</li>
+                }
+            </ul>
+        }
+        else if (_isLoading)
+        {
+            <p>Loading...</p>
+        }
+        else if (!string.IsNullOrWhiteSpace(_searchQuery))
+        {
+            <p>No results found for "@_searchQuery".</p>
+        }
+    </div>
+</div>
+
+<style>
+    .container {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .search-section {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; 
+    }
+
+    .search-input {
+        width: 300px;
+        padding: 10px;
+    }
+
+    .search-button {
+        padding: 10px 20px;
+    }
+
+    .results-section {
+        margin-top: 30px;
+        text-align: left;
+    }
+</style>
+
+@code {
+    private string _searchQuery { get; set; } = string.Empty;
+    
+    //This is a strong couple and should not be in view but as with the most decoupling methods
+    //it would look hideous for current simplistic implementation. 
+    private List<Measurement> _measurements { get; set; } = new();
+    private bool _isLoading { get; set; } = false;
+
+    private async Task GetMeasurements()
+    {
+        if (!string.IsNullOrWhiteSpace(_searchQuery))
+        {
+            _isLoading = true;
+            _measurements.Clear();
+
+            try
+            {
+                _measurements = await DeviceController.GetMeasurements(_searchQuery);
+            }
+            catch 
+            {
+                //Here should be either logging or comeback
+                //Debatable wether this should be View or Controller
+                //Usually I personally don't like throwing unformatted exceptions to View
+                //But here it works for the case of simplicity
+            }
+            finally
+            {
+                _isLoading = false;
+            }
+        }
+    }
+
+    private async Task HandleKeyPress(KeyboardEventArgs e)
+    {        
+        if (e.Key == "Enter")
+        {
+            await GetMeasurements();
+        }
+    }
+}
